@@ -19,10 +19,10 @@ public class BoardVO {
         this.content = content;
     }
 
-    public int getid() {
+    public int getId() {
         return id;
     }
-    public void setid(int id) {
+    public void setId(int id) {
         this.id = id;
     }
     public String getTitle() {
@@ -46,7 +46,7 @@ public class BoardVO {
     public Date getRegdate() {
         return regdate;
     }
-    public void setRegdate(Date cregdate) {
+    public void setRegdate(Date regdate) {
         this.regdate = regdate;
     }
     public int getCnt() {

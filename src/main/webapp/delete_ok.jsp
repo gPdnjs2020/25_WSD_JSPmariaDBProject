@@ -3,14 +3,14 @@
 <%@ page import="org.example.bean.BoardVO" %>
 
 <%
-  String seqStr = request.getParameter("id");       // URL의 ?id=값 받아옴
+  String seqStr = request.getParameter("id");
   if (seqStr != null) {
-    int seq = Integer.parseInt(seqStr);           // id 값을 정수로 변환
+    int seq = Integer.parseInt(seqStr);
     BoardDAO boardDAO = new BoardDAO();
-    BoardVO vo = new BoardVO();                   // BoardVO가 기본 생성자 있어야 함
-    vo.setid(seq);                                // 삭제할 게시글 id 세팅
-    boardDAO.deleteBoard(vo);                     // DAO에서 삭제 처리
+    BoardVO vo = new BoardVO();
+    vo.setId(seq);
+    boardDAO.deleteBoard(vo);
   }
-  // 삭제 작업 후 목록 페이지로 이동
+
   response.sendRedirect("list.jsp");
 %>

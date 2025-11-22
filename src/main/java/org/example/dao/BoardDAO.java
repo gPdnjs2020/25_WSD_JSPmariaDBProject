@@ -15,11 +15,11 @@ public class BoardDAO {
     PreparedStatement stmt = null;
     ResultSet rs = null;
 
-    private final String BOARD_INSERT = "insert into BOARD (title, writer, content) values (?, ?, ?)";
-    private final String BOARD_LIST = "select * from BOARD order by regdate desc";
-    private final String BOARD_UPDATE = "update BOARD set title = ?, writer = ?, content = ? where id = ?";
-    private final String BOARD_DELETE = "delete from BOARD where id = ?";
-    private final String BOARD_GET = "select * from BOARD where id = ?";
+    private final String BOARD_INSERT = "insert into Board (title, writer, content) values (?, ?, ?)";
+    private final String BOARD_LIST = "select * from Board order by regdate desc";
+    private final String BOARD_UPDATE = "update Board set title = ?, writer = ?, content = ? where id = ?";
+    private final String BOARD_DELETE = "delete from Board where id = ?";
+    private final String BOARD_GET = "select * from Board where id = ?";
 
         public List<BoardVO> getBoardList() throws SQLException {
             List<BoardVO> list = new ArrayList<BoardVO>();
@@ -30,7 +30,7 @@ public class BoardDAO {
                 rs=stmt.executeQuery();
                 while (rs.next()) {
                     BoardVO one = new BoardVO();
-                    one.setid(rs.getInt("id"));
+                    one.setId(rs.getInt("id"));
                     one.setTitle(rs.getString("title"));
                     one.setWriter(rs.getString("writer"));
                     one.setContent(rs.getString("content"));
@@ -66,7 +66,7 @@ public class BoardDAO {
             conn = JDBCUtil.getConnection();
             String sql = "delete from Board where id = ?";
             stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, vo.getid());
+            stmt.setInt(1, vo.getId());
             stmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

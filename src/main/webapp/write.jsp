@@ -9,28 +9,49 @@
 <html>
 <head>
     <title>Post Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          crossorigin="anonymous">
+    <style>
+        body {
+            background: #f8f9fa;
+        }
+
+        .write-card {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 36px 36px 28px 36px;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 14px #ccc;
+        }
+
+        h1 {
+            margin-bottom: 24px;
+        }
+    </style>
 </head>
 <body>
-<h1>Add New Post</h1>
-<form action="write_ok.jsp" method="post">
-    <table>
-        <tr>
-            <td>Title:</td>
-            <td><input type="text" name="title"/></td>
-        </tr>
-        <tr>
-            <td>Writer:</td>
-            <td><input type="text" name="writer"/></td>
-        </tr>
-        <tr>
-            <td>Content:</td>
-            <td><textarea cols="50" rows="5" name="content"></textarea></td>
-        </tr>
-        <tr>
-            <td><a href="list.jsp">View List</a></td>
-            <td><input type="submit" value="Add Post"/></td>
-        </tr>
-    </table>
-</form>
+<div class="write-card">
+    <h1 class="mb-4 text-center fw-bold">Add New Post</h1>
+    <form action="write_ok.jsp" method="post">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" class="form-control" name="title" id="title" required>
+        </div>
+        <div class="mb-3">
+            <label for="writer" class="form-label">Writer:</label>
+            <input type="text" class="form-control" name="writer" id="writer" required>
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Content:</label>
+            <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mt-4">
+            <a href="list.jsp" class="btn btn-outline-secondary rounded-pill">View List</a>
+            <input type="submit" class="btn btn-primary rounded-pill" value="Add Post">
+        </div>
+    </form>
+</div>
 </body>
 </html>

@@ -12,7 +12,7 @@ public class JDBCUtil {
         try {
             if (con == null || con.isClosed()) {
                 Class.forName("org.mariadb.jdbc.Driver");
-                con = (Connection) DriverManager.getConnection("jdbc:mariadb://walab.handong.edu/W25_22400412", "W25_22400412", "Uife7t");
+                con = (Connection) DriverManager.getConnection("jdbc:mariadb://walab.handong.edu:3306/W25_22400412", "W25_22400412", "Uife7t");
             }
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
