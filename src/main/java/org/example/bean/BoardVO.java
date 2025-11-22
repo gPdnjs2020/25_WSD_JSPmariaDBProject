@@ -3,12 +3,15 @@ package org.example.bean;
 import java.util.Date;
 
 public class BoardVO {
-    private int seq;
+    private int id;
     private String title;
     private String writer;
     private String content;
-    private Date cregdate;
+    private Date regdate;
     private int cnt;
+
+    public BoardVO() {
+    }
 
     public BoardVO(String title, String writer, String content) {
         this.title = title;
@@ -16,11 +19,11 @@ public class BoardVO {
         this.content = content;
     }
 
-    public int getSeq() {
-        return seq;
+    public int getid() {
+        return id;
     }
-    public void setSeq(int seq) {
-        this.seq = seq;
+    public void setid(int id) {
+        this.id = id;
     }
     public String getTitle() {
         return title;
@@ -40,11 +43,11 @@ public class BoardVO {
     public void setContent(String content) {
         this.content = content;
     }
-    public Date getCregdate() {
-        return cregdate;
+    public Date getRegdate() {
+        return regdate;
     }
-    public void setCregdate(Date cregdate) {
-        this.cregdate = cregdate;
+    public void setRegdate(Date cregdate) {
+        this.regdate = regdate;
     }
     public int getCnt() {
         return cnt;

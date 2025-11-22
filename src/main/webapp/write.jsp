@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>Add New Post</h1>
-<form action="addpost.jsp" method="post">
+<form action="write_ok.jsp" method="post">
     <table>
         <tr>
             <td>Title:</td>
@@ -27,7 +27,7 @@
             <td><textarea cols="50" rows="5" name="content"></textarea></td>
         </tr>
         <tr>
-            <td><a href="posts.jsp">View All Records</a></td>
+            <td><a href="list.jsp">View List</a></td>
             <td><input type="submit" value="Add Post"/></td>
         </tr>
     </table>
