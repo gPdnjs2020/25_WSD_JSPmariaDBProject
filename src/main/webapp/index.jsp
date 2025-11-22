@@ -7,6 +7,8 @@
 <body>
 <h1><%= "Hello World!" %>
 </h1>
+<br />
+<a href="list.jsp">list.jsp</a>
 <br/>
 <a href="write.jsp">write.jsp</a>
 </body>
