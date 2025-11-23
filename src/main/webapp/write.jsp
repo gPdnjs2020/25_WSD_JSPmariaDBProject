@@ -16,7 +16,6 @@
         body {
             background: #f8f9fa;
         }
-
         .write-card {
             max-width: 600px;
             margin: 40px auto;
@@ -25,7 +24,6 @@
             border-radius: 18px;
             box-shadow: 0 2px 14px #ccc;
         }
-
         h1 {
             margin-bottom: 24px;
         }
@@ -53,5 +51,5 @@
         </div>
     </form>
 </div>
-</body>
-</html>
+
+<jsp:include page="bottom.jsp" />
