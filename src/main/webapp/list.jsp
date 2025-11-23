@@ -3,6 +3,18 @@
 <%@page import="org.example.dao.BoardDAO, org.example.bean.BoardVO,java.util.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<%
+    String search = request.getParameter("search");
+    BoardDAO boardDAO = new BoardDAO();
+    List<BoardVO> list;
+    if (search != null && !search.trim().isEmpty()) {
+        list = boardDAO.searchBoardList(search);
+    } else {
+        list = boardDAO.getBoardList();
+    }
+    request.setAttribute("list", list);
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,14 +49,14 @@
         }
     </style>
 </head>
-<%
-    BoardDAO boardDAO = new BoardDAO();
-    List<BoardVO> list = boardDAO.getBoardList();
-    request.setAttribute("list", list);
-%>
 <body>
 <div class="board-container">
     <h1 class="text-center fw-bold mb-4">자유게시판</h1>
+    <form action="list.jsp" method="get" class="mb-3 d-flex">
+        <input type="text" name="search" class="form-control me-2" placeholder="검색어를 입력하세요"
+               value="<%= request.getParameter("search") != null ? request.getParameter("search") : "" %>">
+        <button type="submit" class="btn btn-secondary rounded-pill">검색</button>
+    </form>
     <div class="text-end mb-3">
         <a href="write.jsp" class="btn btn-primary rounded-pill">Add New Post</a>
     </div>

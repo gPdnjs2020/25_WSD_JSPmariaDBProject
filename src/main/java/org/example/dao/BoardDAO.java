@@ -73,6 +73,34 @@ public class BoardDAO {
         }
     }
 
+    public List<BoardVO> searchBoardList(String search) throws SQLException {
+        List<BoardVO> list = new ArrayList<>();
+        String sql = "SELECT * FROM Board WHERE title LIKE ? OR content LIKE ? ORDER BY regdate DESC";
+        try {
+            conn = JDBCUtil.getConnection();
+            stmt = conn.prepareStatement(sql);
+            String keyword = "%" + search + "%";
+            stmt.setString(1, keyword);
+            stmt.setString(2, keyword);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                BoardVO one = new BoardVO();
+                one.setId(rs.getInt("id"));
+                one.setTitle(rs.getString("title"));
+                one.setWriter(rs.getString("writer"));
+                one.setContent(rs.getString("content"));
+                one.setRegdate(rs.getDate("regdate"));
+                one.setCnt(rs.getInt("cnt"));
+                list.add(one);
+            }
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+
     /*public int updateBoard(BoardVO vo);
 
     public BoardVO getBoard(int id);
